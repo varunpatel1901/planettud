@@ -6,20 +6,12 @@
     <title>Planet | The Universe of Design - Architecture & Interior Design</title>
     <meta name="description" content="Planet - The Universe of Design. Expert architectural, structural, and interior design services in Surat, Gujarat since 2014." />
     <meta name="keywords" content="architecture, interior design, structural design, Surat, Gujarat, bungalow, residential, commercial" />
-    <meta name="author" content="Planet - The Universe of Design" />
-
-    <meta property="og:title" content="Planet | The Universe of Design" />
-    <meta property="og:description" content="Expert architectural, structural, and interior design services in Surat, Gujarat since 2014." />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@PlanetDesign" />
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+    
     <style>
         /* ========== CSS RESET & BASE ========== */
         *, *::before, *::after {
@@ -40,20 +32,20 @@
             --muted: hsl(210, 15%, 92%);
             --muted-foreground: hsl(215, 20%, 40%);
             --border: hsl(210, 15%, 88%);
-            --accent: hsl(175, 80%, 45%);
+            --accent: hsl(165, 50%, 45%);
             --accent-foreground: hsl(0, 0%, 100%);
-
+            
             --section-projects: hsl(210, 25%, 95%);
+            --section-gallery: hsl(200, 20%, 96%);
             --section-about: hsl(215, 45%, 22%);
             --section-contact: hsl(45, 35%, 95%);
-            --section-gallery: hsl(210, 20%, 97%);
-
+            
             --font-heading: 'Playfair Display', Georgia, serif;
             --font-body: 'Raleway', system-ui, sans-serif;
-
+            
             --shadow-card: 0 10px 40px -10px hsla(215, 45%, 22%, 0.12);
             --shadow-card-hover: 0 25px 60px -15px hsla(215, 45%, 22%, 0.2);
-
+            
             --radius: 0.75rem;
         }
 
@@ -86,39 +78,10 @@
             display: block;
         }
 
-        .section-container {
+        .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        @media (min-width: 640px) {
-            .section-container {
-                padding: 0 1.5rem;
-            }
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 1024px) {
-            .section-header {
-                margin-bottom: 4rem;
-            }
-        }
-
-        .section-title {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            color: var(--foreground);
-            margin-bottom: 1rem;
-        }
-
-        .section-description {
-            color: var(--muted-foreground);
-            max-width: 600px;
-            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         /* ========== ANIMATIONS ========== */
@@ -136,6 +99,11 @@
         @keyframes bounceSlow {
             0%, 100% { transform: translateY(0) translateX(-50%); }
             50% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .animate-fade-in-up {
@@ -167,7 +135,7 @@
         .navbar-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -186,23 +154,6 @@
             font-weight: 400;
             margin-left: 0.5rem;
             opacity: 0.8;
-        }
-        @media (min-width: 640px) {
-            .navbar-container {
-                padding: 0 1.5rem;
-            }
-        }
-
-        .navbar-logo {
-            height: 40px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        @media (min-width: 640px) {
-            .navbar-logo {
-                height: 48px;
-            }
         }
 
         .navbar-links {
@@ -274,10 +225,6 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .mobile-menu a:last-child {
-            border-bottom: none;
-        }
-
         .mobile-menu a:hover {
             color: var(--secondary);
         }
@@ -287,6 +234,15 @@
                 display: flex;
             }
             .mobile-menu-btn {
+                display: none;
+            }
+            .navbar-logo span {
+                display: inline;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .navbar-logo span {
                 display: none;
             }
         }
@@ -313,7 +269,7 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, hsla(215, 45%, 18%, 0.9) 0%, hsla(215, 45%, 28%, 0.85) 100%);
+            background-color: hsla(220, 40%, 20%, 0.8);
         }
 
         .hero-content {
@@ -334,13 +290,13 @@
         .hero-subtitle {
             font-family: var(--font-heading);
             font-size: clamp(1.25rem, 3vw, 2rem);
-            color: hsla(45, 30%, 96%, 0.9);
+            color: hsla(30, 20%, 98%, 0.9);
             margin-bottom: 1.5rem;
         }
 
         .hero-description {
             font-size: 1rem;
-            color: hsla(45, 30%, 96%, 0.8);
+            color: hsla(30, 20%, 98%, 0.8);
             max-width: 600px;
             margin: 0 auto 2.5rem;
         }
@@ -350,17 +306,16 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, hsl(28, 85%, 55%) 0%, hsl(28, 85%, 45%) 100%);
+            background-color: var(--secondary);
             color: var(--secondary-foreground);
             font-weight: 500;
             border-radius: 9999px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px hsla(28, 85%, 45%, 0.3);
         }
 
         .hero-btn:hover {
+            background-color: hsl(28, 90%, 45%);
             transform: scale(1.05);
-            box-shadow: 0 6px 20px hsla(28, 85%, 45%, 0.4);
         }
 
         .scroll-indicator {
@@ -368,7 +323,7 @@
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            color: hsla(45, 30%, 96%, 0.7);
+            color: hsla(30, 20%, 98%, 0.7);
         }
 
         .scroll-indicator svg {
@@ -376,40 +331,46 @@
             height: 32px;
         }
 
+        /* ========== SECTION COMMON ========== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            color: var(--foreground);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: hsla(220, 30%, 15%, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         /* ========== PROJECTS SECTION ========== */
         .projects {
-            padding: 4rem 0;
+            padding: 5rem 0;
             background-color: var(--section-projects);
-        }
-
-        @media (min-width: 640px) {
-            .projects {
-                padding: 5rem 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .projects {
-                padding: 6rem 0;
-            }
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
         }
 
         @media (min-width: 640px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
             }
         }
 
         @media (min-width: 1024px) {
             .projects-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
             }
         }
 
@@ -450,7 +411,7 @@
         }
 
         .project-info {
-            padding: 1rem 1.25rem;
+            padding: 1.25rem;
         }
 
         .project-title {
@@ -465,132 +426,172 @@
             display: flex;
             align-items: center;
             gap: 0.25rem;
+            margin-bottom: 0.75rem;
         }
 
-        .project-overlay {
-            position: absolute;
+        .project-location svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .more-details-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--secondary);
+            color: var(--secondary-foreground);
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .more-details-btn:hover {
+            background-color: hsl(28, 90%, 45%);
+            transform: scale(1.05);
+        }
+
+        .more-details-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ========== PROJECT MODAL ========== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
             inset: 0;
-            background-color: hsla(215, 45%, 22%, 0.9);
+            background-color: hsla(0, 0%, 0%, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .project-card:hover .project-overlay {
-            opacity: 1;
+        .modal-content {
+            background-color: var(--card);
+            border-radius: var(--radius);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
         }
 
-        .project-overlay-title {
-            font-size: 1.25rem;
-            color: var(--primary-foreground);
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background-color: hsla(0, 0%, 0%, 0.5);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background-color: hsla(0, 0%, 0%, 0.7);
+        }
+
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .modal-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--foreground);
             margin-bottom: 0.5rem;
         }
 
-        .project-overlay-desc {
-            font-size: 0.875rem;
-            color: hsla(45, 30%, 96%, 0.8);
-            line-height: 1.6;
+        .modal-location {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-location svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .modal-description {
+            color: var(--muted-foreground);
+            line-height: 1.8;
         }
 
         /* ========== GALLERY SECTION ========== */
         .gallery {
-            padding: 4rem 0;
+            padding: 5rem 0;
             background-color: var(--section-gallery);
         }
 
-        @media (min-width: 640px) {
-            .gallery {
-                padding: 5rem 0;
-            }
+        .gallery-subsection {
+            margin-bottom: 4rem;
         }
 
-        @media (min-width: 1024px) {
-            .gallery {
-                padding: 6rem 0;
-            }
-        }
-
-        .gallery-box {
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 640px) {
-            .gallery-box {
-                margin-bottom: 4rem;
-            }
-        }
-
-        .gallery-box:last-child {
+        .gallery-subsection:last-child {
             margin-bottom: 0;
         }
 
-        .gallery-header {
+        .gallery-subtitle {
+            font-size: 1.5rem;
+            color: var(--foreground);
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            margin-bottom: 1.5rem;
         }
 
-        .gallery-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+        .gallery-subtitle svg {
+            width: 28px;
+            height: 28px;
+            color: var(--secondary);
         }
 
-        .gallery-icon.photos {
-            background: linear-gradient(135deg, var(--accent) 0%, hsl(175, 80%, 35%) 100%);
-        }
-
-        .gallery-icon.videos {
-            background: linear-gradient(135deg, var(--secondary) 0%, hsl(28, 85%, 45%) 100%);
-        }
-
-        .gallery-icon svg {
-            width: 24px;
-            height: 24px;
-            color: white;
-        }
-
-        .gallery-title {
-            font-size: 1.5rem;
-            color: var(--foreground);
-        }
-
-        .gallery-subtitle {
-            font-size: 0.875rem;
+        .gallery-subtext {
             color: var(--muted-foreground);
-        }
-
-        .gallery-content {
-            background-color: var(--card);
-            border-radius: var(--radius);
-            padding: 1rem;
-            box-shadow: var(--shadow-card);
-        }
-
-        @media (min-width: 640px) {
-            .gallery-content {
-                padding: 1.5rem;
-            }
+            margin-bottom: 1.5rem;
         }
 
         .photos-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         @media (min-width: 640px) {
             .photos-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
             }
         }
 
@@ -603,16 +604,21 @@
         .photo-item {
             position: relative;
             aspect-ratio: 1;
-            border-radius: 0.5rem;
+            border-radius: var(--radius);
             overflow: hidden;
             cursor: pointer;
+            box-shadow: var(--shadow-card);
+        }
+
+        .photo-item.hidden {
+            display: none;
         }
 
         .photo-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
         .photo-item:hover img {
@@ -622,7 +628,7 @@
         .photo-overlay {
             position: absolute;
             inset: 0;
-            background-color: hsla(215, 45%, 22%, 0.6);
+            background-color: hsla(0, 0%, 0%, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -640,167 +646,233 @@
             color: white;
         }
 
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+            font-weight: 500;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background-color: hsl(215, 45%, 28%);
+            transform: scale(1.05);
+        }
+
+        .load-more-btn.hidden {
+            display: none;
+        }
+
+        .load-more-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========== VIDEO GALLERY ========== */
         .videos-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         @media (min-width: 640px) {
             .videos-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
             }
         }
 
         @media (min-width: 1024px) {
             .videos-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         .video-item {
             position: relative;
-            aspect-ratio: 16/9;
-            border-radius: 0.5rem;
+            border-radius: var(--radius);
             overflow: hidden;
-            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            background-color: var(--card);
         }
 
-        .video-item img {
+        .video-wrapper {
+            position: relative;
+            aspect-ratio: 16/9;
+            background-color: #000;
+        }
+
+        .video-wrapper video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, hsla(215, 45%, 22%, 0.9) 0%, hsla(215, 45%, 35%, 0.9) 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            background: linear-gradient(135deg, hsla(215, 45%, 28%, 0.95) 0%, hsla(215, 45%, 40%, 0.95) 100%);
+        }
+
+        .video-placeholder.hidden {
+            display: none;
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
             transition: transform 0.3s ease;
         }
 
-        .video-item:hover img {
+        .video-placeholder:hover .play-button {
             transform: scale(1.1);
         }
 
-        .video-overlay {
-            position: absolute;
+        .play-button svg {
+            width: 30px;
+            height: 30px;
+            color: white;
+            margin-left: 4px;
+        }
+
+        .video-placeholder-text {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .video-info {
+            padding: 1rem;
+        }
+
+        .video-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--foreground);
+            margin-bottom: 0.25rem;
+        }
+
+        .video-duration {
+            font-size: 0.8rem;
+            color: var(--muted-foreground);
+        }
+
+        .video-note {
+            text-align: center;
+            color: var(--muted-foreground);
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: hsla(0, 0%, 0%, 0.03);
+            border-radius: var(--radius);
+        }
+
+        .video-note strong {
+            color: var(--foreground);
+        }
+
+        /* ========== LIGHTBOX ========== */
+        .lightbox {
+            display: none;
+            position: fixed;
             inset: 0;
-            background-color: hsla(215, 45%, 22%, 0.4);
+            background-color: hsla(0, 0%, 0%, 0.95);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 50px;
+            height: 50px;
+            background-color: hsla(0, 0%, 100%, 0.1);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s ease;
         }
 
-        .video-item:hover .video-overlay {
-            background-color: hsla(215, 45%, 22%, 0.5);
+        .lightbox-close:hover {
+            background-color: hsla(0, 0%, 100%, 0.2);
         }
 
-        .play-button {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background-color: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px hsla(0, 0%, 0%, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        @media (min-width: 640px) {
-            .play-button {
-                width: 64px;
-                height: 64px;
-            }
-        }
-
-        .video-item:hover .play-button {
-            transform: scale(1.1);
-        }
-
-        .play-button svg {
+        .lightbox-close svg {
             width: 24px;
             height: 24px;
             color: white;
-            margin-left: 4px;
         }
 
-        @media (min-width: 640px) {
-            .play-button svg {
-                width: 28px;
-                height: 28px;
-            }
-        }
-
-        .video-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, hsla(0, 0%, 0%, 0.8) 0%, transparent 100%);
-            padding: 0.75rem 1rem;
-        }
-
-        .video-title {
-            font-weight: 500;
-            color: white;
-            font-size: 0.875rem;
-        }
-
-        @media (min-width: 640px) {
-            .video-title {
-                font-size: 1rem;
-            }
-        }
-
-        .video-duration {
-            font-size: 0.75rem;
-            color: hsla(0, 0%, 100%, 0.7);
-        }
-
-        .gallery-note {
-            text-align: center;
-            font-size: 0.875rem;
-            color: var(--muted-foreground);
-            margin-top: 1rem;
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--radius);
         }
 
         /* ========== ABOUT SECTION ========== */
         .about {
+            padding: 6rem 0;
+            background-color: var(--section-about);
             position: relative;
-            padding: 4rem 0;
             overflow: hidden;
         }
 
-        @media (min-width: 640px) {
-            .about {
-                padding: 5rem 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .about {
-                padding: 6rem 0;
-            }
-        }
-
-        .about-bg {
+        .about::before {
+            content: '';
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: linear-gradient(135deg, hsla(215, 45%, 18%, 0.95) 0%, hsla(215, 45%, 28%, 0.9) 100%);
+            z-index: 1;
         }
 
-        .about .section-container {
+        .about .container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .about-header {
             text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 1024px) {
-            .about-header {
-                margin-bottom: 4rem;
-            }
+            margin-bottom: 4rem;
         }
 
         .about-header h2 {
@@ -850,43 +922,25 @@
         .about-image-wrapper::before {
             content: '';
             position: absolute;
-            bottom: -1rem;
-            left: -1rem;
-            width: 6rem;
-            height: 6rem;
+            bottom: -1.5rem;
+            left: -1.5rem;
+            width: 8rem;
+            height: 8rem;
             background-color: var(--secondary);
             border-radius: var(--radius);
             z-index: -1;
         }
 
-        @media (min-width: 640px) {
-            .about-image-wrapper::before {
-                bottom: -1.5rem;
-                left: -1.5rem;
-                width: 8rem;
-                height: 8rem;
-            }
-        }
-
         .about-image-wrapper::after {
             content: '';
             position: absolute;
-            top: -1rem;
-            right: -1rem;
-            width: 6rem;
-            height: 6rem;
+            top: -1.5rem;
+            right: -1.5rem;
+            width: 8rem;
+            height: 8rem;
             border: 3px solid var(--secondary);
             border-radius: var(--radius);
             z-index: -1;
-        }
-
-        @media (min-width: 640px) {
-            .about-image-wrapper::after {
-                top: -1.5rem;
-                right: -1.5rem;
-                width: 8rem;
-                height: 8rem;
-            }
         }
 
         .about-content {
@@ -902,7 +956,7 @@
         .about-content .intro-text {
             font-size: 1.1rem;
             color: hsla(45, 30%, 96%, 0.9);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1.8;
         }
 
@@ -912,15 +966,14 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem;
         }
 
-        @media (min-width: 640px) {
+        @media (max-width: 640px) {
             .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+                grid-template-columns: 1fr;
             }
         }
 
@@ -928,17 +981,11 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            padding: 0.75rem 1rem;
+            padding: 1rem 1.25rem;
             background-color: hsla(0, 0%, 100%, 0.08);
             border-radius: var(--radius);
             border: 1px solid hsla(0, 0%, 100%, 0.1);
             transition: all 0.3s ease;
-        }
-
-        @media (min-width: 640px) {
-            .service-item {
-                padding: 1rem 1.25rem;
-            }
         }
 
         .service-item:hover {
@@ -966,61 +1013,33 @@
         .service-item span {
             color: var(--primary-foreground);
             font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        @media (min-width: 640px) {
-            .service-item span {
-                font-size: 0.95rem;
-            }
+            font-size: 0.95rem;
         }
 
         .about-description {
             color: hsla(45, 30%, 96%, 0.8);
             line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        @media (min-width: 640px) {
-            .about-description {
-                font-size: 1rem;
-            }
+            margin-bottom: 2.5rem;
         }
 
         .founder-card {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.25rem;
+            gap: 1.25rem;
+            padding: 1.5rem;
             background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0.05) 100%);
             border-radius: var(--radius);
             border: 1px solid hsla(0, 0%, 100%, 0.15);
             backdrop-filter: blur(10px);
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 640px) {
-            .founder-card {
-                gap: 1.25rem;
-                padding: 1.5rem;
-            }
         }
 
         .founder-img {
-            width: 64px;
-            height: 64px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--secondary);
             box-shadow: 0 8px 25px hsla(0, 0%, 0%, 0.2);
-        }
-
-        @media (min-width: 640px) {
-            .founder-img {
-                width: 80px;
-                height: 80px;
-            }
         }
 
         .founder-info {
@@ -1028,56 +1047,33 @@
         }
 
         .founder-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--secondary);
             margin-bottom: 0.25rem;
         }
 
-        @media (min-width: 640px) {
-            .founder-label {
-                font-size: 0.75rem;
-            }
-        }
-
         .founder-name {
             font-family: var(--font-heading);
             font-weight: 600;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: var(--primary-foreground);
             margin-bottom: 0.25rem;
         }
 
-        @media (min-width: 640px) {
-            .founder-name {
-                font-size: 1.25rem;
-            }
-        }
-
         .founder-title {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: hsla(45, 30%, 96%, 0.7);
-        }
-
-        @media (min-width: 640px) {
-            .founder-title {
-                font-size: 0.9rem;
-            }
         }
 
         .stats-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            padding-top: 1.5rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
             border-top: 1px solid hsla(0, 0%, 100%, 0.1);
-        }
-
-        @media (min-width: 640px) {
-            .stats-row {
-                padding-top: 2rem;
-            }
         }
 
         .stat-item {
@@ -1093,40 +1089,22 @@
         }
 
         .stat-label {
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: hsla(45, 30%, 96%, 0.7);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        @media (min-width: 640px) {
-            .stat-label {
-                font-size: 0.85rem;
-            }
-        }
-
         /* ========== CONTACT SECTION ========== */
         .contact {
-            padding: 4rem 0;
+            padding: 5rem 0;
             background-color: var(--section-contact);
-        }
-
-        @media (min-width: 640px) {
-            .contact {
-                padding: 5rem 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .contact {
-                padding: 6rem 0;
-            }
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1rem;
+            gap: 1.5rem;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -1134,26 +1112,14 @@
         @media (min-width: 640px) {
             .contact-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
             }
         }
 
         .contact-card {
             background-color: var(--card);
-            padding: 1.25rem;
+            padding: 1.5rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow-card);
-            transition: box-shadow 0.3s ease;
-        }
-
-        @media (min-width: 640px) {
-            .contact-card {
-                padding: 1.5rem;
-            }
-        }
-
-        .contact-card:hover {
-            box-shadow: var(--shadow-card-hover);
         }
 
         .contact-card-inner {
@@ -1172,52 +1138,24 @@
             flex-shrink: 0;
         }
 
-        @media (min-width: 640px) {
-            .contact-icon {
-                width: 48px;
-                height: 48px;
-            }
-        }
-
         .contact-icon svg {
             width: 20px;
             height: 20px;
             color: var(--secondary);
         }
 
-        @media (min-width: 640px) {
-            .contact-icon svg {
-                width: 24px;
-                height: 24px;
-            }
-        }
-
         .contact-card h3 {
             font-family: var(--font-heading);
             font-weight: 600;
-            font-size: 1rem;
             color: var(--foreground);
             margin-bottom: 0.5rem;
         }
 
-        @media (min-width: 640px) {
-            .contact-card h3 {
-                font-size: 1.125rem;
-            }
-        }
-
         .contact-card p,
         .contact-card a {
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             color: var(--muted-foreground);
             line-height: 1.8;
-        }
-
-        @media (min-width: 640px) {
-            .contact-card p,
-            .contact-card a {
-                font-size: 0.875rem;
-            }
         }
 
         .contact-card a {
@@ -1232,10 +1170,10 @@
         .map-link {
             display: inline-flex !important;
             align-items: center;
-            gap: 0.25rem;
-            font-weight: 500;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
             color: var(--secondary) !important;
-            margin-top: 0.5rem;
+            font-weight: 500;
         }
 
         .map-link:hover {
@@ -1244,15 +1182,9 @@
 
         /* ========== FOOTER ========== */
         .footer {
-            background: linear-gradient(135deg, hsl(215, 45%, 22%) 0%, hsl(215, 45%, 28%) 100%);
+            background-color: var(--primary);
             color: var(--primary-foreground);
             padding: 2rem 0;
-        }
-
-        @media (min-width: 640px) {
-            .footer {
-                padding: 2.5rem 0;
-            }
         }
 
         .footer-content {
@@ -1271,19 +1203,7 @@
             }
         }
 
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
         .footer-logo {
-            height: 32px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .footer-logo-text {
             font-family: var(--font-heading);
             font-size: 1.25rem;
             font-weight: 700;
@@ -1298,50 +1218,6 @@
             font-size: 0.875rem;
             opacity: 0.7;
         }
-
-        /* ========== LIGHTBOX ========== */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-            background-color: hsla(0, 0%, 0%, 0.9);
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .lightbox-close:hover {
-            color: var(--secondary);
-        }
-
-        .lightbox-close svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        .lightbox img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 0.5rem;
-        }
     </style>
 </head>
 <body>
@@ -1352,7 +1228,7 @@
                 PLANET
                 <span>The Universe of Design</span>
             </a>
-
+            
             <div class="navbar-links">
                 <a href="#home" class="navbar-link">Home</a>
                 <a href="#projects" class="navbar-link">Projects</a>
@@ -1360,13 +1236,13 @@
                 <a href="#about" class="navbar-link">About</a>
                 <a href="#contact" class="navbar-link">Contact</a>
             </div>
-
+            
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
+            
             <div class="mobile-menu" id="mobileMenu">
                 <a href="#home">Home</a>
                 <a href="#projects">Projects</a>
@@ -1381,7 +1257,7 @@
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
-
+        
         <div class="hero-content">
             <h1 class="hero-title animate-fade-in-up">PLANET</h1>
             <p class="hero-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">The Universe of Design</p>
@@ -1392,7 +1268,7 @@
                 Explore Our Work
             </a>
         </div>
-
+        
         <a href="#projects" class="scroll-indicator animate-bounce-slow" aria-label="Scroll down">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -1402,167 +1278,183 @@
 
     <!-- ========== PROJECTS SECTION ========== -->
     <section class="projects" id="projects">
-        <div class="section-container">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Our Projects</h2>
                 <p class="section-description">
                     From private residences to commercial spaces, each project tells a unique story through innovative design.
                 </p>
             </div>
-
+            
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Resident Bungalow" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Resident Bungalow">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Resident Bungalow</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Mota Varachha, Surat
                         </p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">Resident Bungalow</h3>
-                        <p class="project-overlay-desc">This Bungalow is constructed at Digital Valley Society, situated at Mota Varachha with modern amenities and elegant design.</p>
+                        <button class="more-details-btn" onclick="openModal(0)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
-
+                
                 <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Row House" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Row House">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Row House</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Amroli, Surat
                         </p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">Row House</h3>
-                        <p class="project-overlay-desc">A mind-blowing and amazing multi-storeyed Row House designed by our company, situated at Amroli, Surat.</p>
+                        <button class="more-details-btn" onclick="openModal(1)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
-
+                
                 <!-- Project 3 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Row House Type Homes" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Row House Type Homes">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Row House Type Homes</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Dindoli, Surat
                         </p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">Row House Type Homes</h3>
-                        <p class="project-overlay-desc">A chain of Row house type homes designed by our company, situated at Dindoli, Surat.</p>
+                        <button class="more-details-btn" onclick="openModal(2)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
-
+                
                 <!-- Project 4 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Luxury Bungalow" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Luxury Bungalow">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Luxury Bungalow</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Chaprabhatha, Surat
                         </p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">Luxury Bungalow</h3>
-                        <p class="project-overlay-desc">This corner-side luxury Bungalow is designed with immense beauty and art at Chaprabhatha.</p>
+                        <button class="more-details-btn" onclick="openModal(3)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
-
+                
                 <!-- Project 5 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Residential Tenament" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Residential Tenament">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Residential Tenament</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Jahangirpura, Surat
                         </p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">Residential Tenament</h3>
-                        <p class="project-overlay-desc">A fantastic Residential Tenament at Shiv Bungalows society, situated at Jahangirpura, Surat.</p>
+                        <button class="more-details-btn" onclick="openModal(4)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
-
+                
                 <!-- Project 6 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Sevani X" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Sevani X">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Sevani X</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Kamrej, Surat
                         </p>
-                        <br>
-                        <p class="text-gray-600", style="font-size: small;"><i><u>(Click for more details.)</i></u></p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">Sevani X</h3>
-                        <p class="project-overlay-desc">A next level commercial building designed near Gopinath Industry, Sevani, Kamrej, Surat.</p>
+                        <button class="more-details-btn" onclick="openModal(5)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
-
+                
                 <!-- Project 7 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80" alt="House Project" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80" alt="House Project">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">House Project</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Palitana, Bhavnagar
                         </p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">House Project</h3>
-                        <p class="project-overlay-desc">We recently designed a House Project at Gheti Village, Palitana, Bhavnagar.</p>
+                        <button class="more-details-btn" onclick="openModal(6)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
-
+                
                 <!-- Project 8 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80" alt="Royal Bungalow" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80" alt="Royal Bungalow">
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Royal Bungalow</h3>
                         <p class="project-location">
-                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Ahmedabad
                         </p>
-                    </div>
-                    <div class="project-overlay">
-                        <h3 class="project-overlay-title">Royal Bungalow</h3>
-                        <p class="project-overlay-desc">An outstanding corner Bungalow designed by our company, situated in Ahmedabad city.</p>
+                        <button class="more-details-btn" onclick="openModal(7)">
+                            More Details
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========== PROJECT MODAL ========== -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p class="modal-location" id="modalLocation">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span id="modalLocationText"></span>
+                </p>
+                <p class="modal-description" id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
     <!-- ========== GALLERY SECTION ========== -->
     <section class="gallery" id="gallery">
-        <div class="section-container">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Gallery</h2>
                 <p class="section-description">
@@ -1570,134 +1462,209 @@
                 </p>
             </div>
 
-            <!-- Photo Gallery Box -->
-            <div class="gallery-box">
-                <div class="gallery-header">
-                    <div class="gallery-icon photos">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <!-- Photo Gallery -->
+            <div class="gallery-subsection">
+                <h3 class="gallery-subtitle">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    Photo Gallery
+                </h3>
+                <p class="gallery-subtext">Browse our architectural photography - Click on any image to enlarge</p>
+                
+                <div class="photos-grid" id="photosGrid">
+                    <!-- First 6 photos (visible by default) -->
+                    <div class="photo-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80" alt="Modern Interior Design">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="gallery-title">Photo Gallery</h3>
-                        <p class="gallery-subtitle">Browse our architectural photography</p>
+                    <div class="photo-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400&q=80" alt="Architectural Detail">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80" alt="Luxury Home">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80" alt="Home Interior">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600607688066-890987f18a86?w=400&q=80" alt="Modern Architecture">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400&q=80" alt="Building Exterior">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden photos (shown when "More Images" is clicked) -->
+                    <div class="photo-item hidden" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" alt="Bungalow Design">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item hidden" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Interior View">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item hidden" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Residential Project">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item hidden" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80" alt="Luxury Interior">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item hidden" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=80" alt="House Design">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
+                    </div>
+                    <div class="photo-item hidden" onclick="openLightbox(this)">
+                        <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=400&q=80" alt="Corner Bungalow">
+                        <div class="photo-overlay">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                        </div>
                     </div>
                 </div>
-
-                <div class="gallery-content">
-                    <div class="photos-grid">
-                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80" alt="Modern Interior Design" loading="lazy">
-                            <div class="photo-overlay">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                            </div>
-                        </div>
-                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400&q=80" alt="Architectural Detail" loading="lazy">
-                            <div class="photo-overlay">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                            </div>
-                        </div>
-                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=80" alt="Luxury Home" loading="lazy">
-                            <div class="photo-overlay">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                            </div>
-                        </div>
-                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=400&q=80" alt="Home Interior" loading="lazy">
-                            <div class="photo-overlay">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                            </div>
-                        </div>
-                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1600607688066-890987f18a86?w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1600607688066-890987f18a86?w=400&q=80" alt="Modern Architecture" loading="lazy">
-                            <div class="photo-overlay">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                            </div>
-                        </div>
-                        <div class="photo-item" onclick="openLightbox('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80')">
-                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400&q=80" alt="Building Exterior" loading="lazy">
-                            <div class="photo-overlay">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="gallery-note">Click to enlarge • More photos coming soon</p>
+                
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="loadMorePhotos" onclick="loadMorePhotos()">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        More Images
+                    </button>
                 </div>
             </div>
 
-            <!-- Video Gallery Box -->
-            <div class="gallery-box">
-                <div class="gallery-header">
-                    <div class="gallery-icon videos">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+            <!-- Video Gallery -->
+            <div class="gallery-subsection">
+                <h3 class="gallery-subtitle">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    Video Gallery
+                </h3>
+                <p class="gallery-subtext">Watch our project walkthroughs and design showcases</p>
+                
+                <div class="videos-grid">
+                    <!-- Video 1 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <!-- Replace src with your actual video file path -->
+                            <video id="video1" controls preload="metadata">
+                                <source src="videos/bungalow-walkthrough.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-placeholder" onclick="playVideo('video1', this)">
+                                <div class="play-button">
+                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                </div>
+                                <span class="video-placeholder-text">Click to play video</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <p class="video-title">Bungalow Walkthrough</p>
+                            <p class="video-duration">3:45</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="gallery-title">Video Gallery</h3>
-                        <p class="gallery-subtitle">Watch our project walkthroughs</p>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <video id="video2" controls preload="metadata">
+                                <source src="videos/interior-design-tour.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-placeholder" onclick="playVideo('video2', this)">
+                                <div class="play-button">
+                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                </div>
+                                <span class="video-placeholder-text">Click to play video</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <p class="video-title">Interior Design Tour</p>
+                            <p class="video-duration">4:20</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <video id="video3" controls preload="metadata">
+                                <source src="videos/project-showcase.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-placeholder" onclick="playVideo('video3', this)">
+                                <div class="play-button">
+                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                </div>
+                                <span class="video-placeholder-text">Click to play video</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <p class="video-title">Project Showcase</p>
+                            <p class="video-duration">5:15</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 4 -->
+                    <div class="video-item">
+                        <div class="video-wrapper">
+                            <video id="video4" controls preload="metadata">
+                                <source src="videos/design-process.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-placeholder" onclick="playVideo('video4', this)">
+                                <div class="play-button">
+                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                </div>
+                                <span class="video-placeholder-text">Click to play video</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <p class="video-title">Design Process</p>
+                            <p class="video-duration">2:50</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="gallery-content">
-                    <div class="videos-grid">
-                        <div class="video-item">
-                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Bungalow Walkthrough" loading="lazy">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                                </div>
-                            </div>
-                            <div class="video-info">
-                                <p class="video-title">Bungalow Walkthrough</p>
-                                <p class="video-duration">3:45</p>
-                            </div>
-                        </div>
-                        <div class="video-item">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Interior Design Tour" loading="lazy">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                                </div>
-                            </div>
-                            <div class="video-info">
-                                <p class="video-title">Interior Design Tour</p>
-                                <p class="video-duration">4:20</p>
-                            </div>
-                        </div>
-                        <div class="video-item">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Project Showcase" loading="lazy">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                                </div>
-                            </div>
-                            <div class="video-info">
-                                <p class="video-title">Project Showcase</p>
-                                <p class="video-duration">5:15</p>
-                            </div>
-                        </div>
-                        <div class="video-item">
-                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Design Process" loading="lazy">
-                            <div class="video-overlay">
-                                <div class="play-button">
-                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                                </div>
-                            </div>
-                            <div class="video-info">
-                                <p class="video-title">Design Process</p>
-                                <p class="video-duration">2:50</p>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="gallery-note">Videos coming soon • Check back for updates</p>
+                
+                <div class="video-note">
+                    <strong>Note:</strong> To add your own videos, create a "videos" folder in the same directory as this HTML file and add your .mp4 files. Update the video source paths accordingly (e.g., videos/your-video-name.mp4).
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========== LIGHTBOX ========== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <img src="" alt="Gallery Image" id="lightboxImage">
+    </div>
+
     <!-- ========== ABOUT SECTION ========== -->
     <section class="about" id="about">
-        <div class="about-bg"></div>
-        <div class="section-container">
+        <div class="container">
             <div class="about-header">
                 <h2>About Us</h2>
                 <p>Crafting architectural excellence with innovation and precision since 2014</p>
@@ -1745,7 +1712,7 @@
                     </p>
 
                     <div class="founder-card">
-                        <img src="29050.jpg" alt="Mayur Vaghasiya" class="founder-img">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Mayur Vaghasiya" class="founder-img">
                         <div class="founder-info">
                             <p class="founder-label">Founder & Lead Architect</p>
                             <p class="founder-name">Mayur Vaghasiya</p>
@@ -1774,7 +1741,7 @@
 
     <!-- ========== CONTACT SECTION ========== -->
     <section class="contact" id="contact">
-        <div class="section-container">
+        <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Contact Us</h2>
                 <p class="section-description">Get in touch to discuss your next project</p>
@@ -1853,34 +1820,74 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
-        <div class="section-container">
+        <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="IMG_20250626_215637.jpg" alt="Planet" class="footer-logo">
-                    <div>
-                        <p class="footer-logo-text">PLANET</p>
-                        <p class="footer-tagline">The Universe of Design</p>
-                    </div>
+                <div>
+                    <p class="footer-logo">PLANET</p>
+                    <p class="footer-tagline">The Universe of Design</p>
                 </div>
-                <p class="footer-copyright">© 2024 Planet. All rights reserved.</p>
+                <p class="footer-copyright">© 2024 Planet - The Universe of Design. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ========== LIGHTBOX ========== -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-        <img src="" alt="Gallery Image" id="lightboxImage">
-    </div>
-
     <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
+        // Project data for modal
+        const projects = [
+            {
+                title: "Resident Bungalow",
+                location: "Mota Varachha, Surat",
+                description: "This beautiful Bungalow is constructed at Digital Valley Society, situated at Mota Varachha. The project features modern amenities, elegant design, spacious living areas, and premium finishes throughout. The architecture seamlessly blends contemporary style with functional living spaces, creating a perfect home for modern families.",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80"
+            },
+            {
+                title: "Row House",
+                location: "Amroli, Surat",
+                description: "A mind-blowing and amazing multi-storeyed Row House designed by our company, situated at Amroli, Surat. This project showcases our expertise in creating compact yet luxurious living spaces with attention to every detail. Each unit features private terraces, modern kitchens, and optimal natural lighting.",
+                image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80"
+            },
+            {
+                title: "Row House Type Homes",
+                location: "Dindoli, Surat",
+                description: "A chain of Row house type homes designed by our company, situated at Dindoli, Surat. This residential project offers a perfect blend of community living with individual privacy. The homes feature shared green spaces, modern amenities, and sustainable design elements.",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
+            },
+            {
+                title: "Luxury Bungalow",
+                location: "Chaprabhatha, Surat",
+                description: "This corner-side luxury Bungalow is designed with immense beauty and art at Chaprabhatha. The property maximizes its corner lot advantage with wrap-around gardens, multiple outdoor living areas, and panoramic views. Interior spaces feature high ceilings, premium materials, and custom architectural details.",
+                image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80"
+            },
+            {
+                title: "Residential Tenament",
+                location: "Jahangirpura, Surat",
+                description: "A fantastic Residential Tenament at Shiv Bungalows society, situated at Jahangirpura, Surat. This multi-unit residential project offers affordable luxury with modern amenities. Each unit is designed to maximize space efficiency while maintaining aesthetic appeal.",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80"
+            },
+            {
+                title: "Sevani X",
+                location: "Kamrej, Surat",
+                description: "A next level commercial building designed near Gopinath Industry, Sevani, Kamrej, Surat. This commercial project represents our capability in designing functional business spaces. The building features modern office layouts, ample parking, and sustainable building practices.",
+                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80"
+            },
+            {
+                title: "House Project",
+                location: "Palitana, Bhavnagar",
+                description: "We recently designed a House Project at Gheti Village, Palitana, Bhavnagar. This residential project brings modern architecture to a traditional setting, respecting local building customs while introducing contemporary comforts and design sensibilities.",
+                image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80"
+            },
+            {
+                title: "Royal Bungalow",
+                location: "Ahmedabad",
+                description: "An outstanding corner Bungalow designed by our company, situated in Ahmedabad city. This prestigious project showcases luxury living at its finest with expansive grounds, architectural grandeur, and premium finishes that define modern elegance.",
+                image: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1200&q=80"
+            }
+        ];
 
-        window.addEventListener('scroll', () => {
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
@@ -1892,50 +1899,111 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
         });
 
         // Close mobile menu when clicking a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
+        mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
             });
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
+        // Project Modal functions
+        function openModal(index) {
+            const project = projects[index];
+            const modal = document.getElementById('projectModal');
+            
+            document.getElementById('modalImage').src = project.image;
+            document.getElementById('modalImage').alt = project.title;
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalLocationText').textContent = project.location;
+            document.getElementById('modalDescription').textContent = project.description;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
             }
         });
 
-        // Lightbox
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
+        // Load more photos function
+        function loadMorePhotos() {
+            const hiddenPhotos = document.querySelectorAll('.photo-item.hidden');
+            hiddenPhotos.forEach(photo => {
+                photo.classList.remove('hidden');
+            });
+            
+            // Hide the button after loading
+            document.getElementById('loadMorePhotos').classList.add('hidden');
+        }
 
-        function openLightbox(src) {
-            lightboxImage.src = src;
+        // Lightbox functions
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            // Get high-res version of the image
+            const highResSrc = img.src.replace('w=400', 'w=1200');
+            lightboxImage.src = highResSrc;
+            lightboxImage.alt = img.alt;
+            
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('lightbox-close')) {
                 closeLightbox();
             }
         });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        // Video play function
+        function playVideo(videoId, placeholder) {
+            const video = document.getElementById(videoId);
+            placeholder.classList.add('hidden');
+            video.play();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
                 closeLightbox();
             }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
