@@ -1946,7 +1946,7 @@
                     </div>
                     
                     <!-- Video 4 -->
-                    <div class="video-item">
+                    <!-- <div class="video-item">
                         <div class="video-wrapper">
                             <video id="video4" controls preload="metadata" playsinline webkit-playsinline controlslist="nodownload">
                                 <source src="29402.mp4" type="video/mp4">
@@ -1964,7 +1964,7 @@
                             <p class="video-title">Dahod Site - Farm House</p>
                             <p class="video-duration">0:21</p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Video 5 -->
                     <div class="video-item">
@@ -2007,6 +2007,27 @@
                             <p class="video-duration">0:24</p>
                         </div>
                     </div>
+
+                     <div class="video-item">
+                        <div class="video-wrapper">
+                            <video id="video4" controls preload="metadata" playsinline webkit-playsinline controlslist="nodownload">
+                                <source src="29402.mp4" type="video/mp4">
+                                <source src="29402.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-placeholder" onclick="playVideo('video4', this)">
+                                <div class="play-button">
+                                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                </div>
+                                <span class="video-placeholder-text">Click to play video</span>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <p class="video-title">Dahod Site - Farm House</p>
+                            <p class="video-duration">0:21</p>
+                        </div>
+                    </div>
+
                     
                 </div>
                 
@@ -2417,12 +2438,12 @@
                 }).catch(error => {
                     // Auto-play was prevented, show controls and let user play manually
                     console.log('Auto-play prevented:', error);
-                    video.controls = true;
+                    video.controls = false;
                     // On mobile, sometimes we need to mute first for autoplay
-                    video.muted = true;
+                    video.muted = false;
                     video.play().catch(e => {
                         // If still fails, just show the video with controls
-                        video.muted = false;
+                        video.muted = true;
                         console.log('Please tap the video to play');
                     });
                 });
