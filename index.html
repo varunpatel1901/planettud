@@ -778,7 +778,7 @@
             }
         }
 
-        .video-item {
+        /* .video-item {
             position: relative;
             border-radius: var(--radius);
             overflow: hidden;
@@ -798,7 +798,7 @@
             height: 100%;
             object-fit: contain;
             background-color: #000;
-            /* iOS/Safari compatibility */
+            /* iOS/Safari compatibility 
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
         }
@@ -884,9 +884,37 @@
 
         .video-note strong {
             color: var(--foreground);
-        }
+        } */
 
-        /* ========== LIGHTBOX ========== */
+        .video-gallery { max-width: 1200px; margin: 0 auto; padding: 40px 20px; font-family: 'Inter', sans-serif; }
+  .video-gallery h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #e2e8f0; }
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .video-card { background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+  .video-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+  .video-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+  .video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .video-card:hover .video-thumb img { transform: scale(1.08); }
+  .play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); }
+  .play-btn span { width: 56px; height: 56px; background: linear-gradient(135deg, #e88c30, #f59e0b); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
+  .video-card:hover .play-btn span { transform: scale(1.1); }
+  .play-btn span::after { content: ''; border-left: 18px solid #1a1a2e; border-top: 11px solid transparent; border-bottom: 11px solid transparent; margin-left: 4px; }
+  .video-duration { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.75); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+  .video-card-title { padding: 14px; font-weight: 600; color: #e2e8f0; font-size: 0.95rem; }
+  .video-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; }
+  .video-modal-overlay.active { display: flex; }
+  .video-modal { background: #1e293b; border-radius: 12px; width: 90%; max-width: 900px; overflow: hidden; }
+  .video-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .video-modal-header h3 { color: #e2e8f0; margin: 0; font-size: 1rem; }
+  .video-modal-close { background: none; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer; padding: 4px 8px; }
+  .video-modal-close:hover { color: #fff; }
+  .video-modal iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+
+  /* @media (max-width: 640px) {
+    .video-grid { grid-template-columns: 1fr; }
+    .video-gallery h2 { font-size: 1.5rem; }
+  } */
+
+        /*========== LIGHTBOX ==========*/ 
         .lightbox {
             display: none;
             position: fixed;
@@ -933,7 +961,7 @@
             max-height: 85vh;
             object-fit: contain;
             border-radius: var(--radius);
-        }
+        } 
 
         /* ========== ABOUT SECTION ========== */
         .about {
@@ -1881,8 +1909,22 @@
                 </h3>
                 <p class="gallery-subtext">Watch our project walkthroughs and design showcases</p>
                 
-                <div class="videos-grid">
-                    <!-- Video 1 -->
+                <div class="videos-grid", style="flex-direction: column">
+                    <div class="video-gallery">
+  
+  <div class="video-grid" id="videoGrid"></div>
+</div>
+
+<div class="video-modal-overlay" id="videoModal">
+  <div class="video-modal">
+    <div class="video-modal-header">
+      <h3 id="videoModalTitle"></h3>
+      <button class="video-modal-close" onclick="closeVideo()">&times;</button>
+    </div>
+    <iframe id="videoModalFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+                    <!-- Video 1
                     <div class="video-item">
                         <div class="video-wrapper">
                             <video id="video1" controls preload="metadata" playsinline webkit-playsinline controlslist="nodownload">
@@ -1903,7 +1945,7 @@
                         </div>
                     </div>
                     
-                    <!-- Video 2 -->
+                    <!-- Video 2
                     <div class="video-item">
                         <div class="video-wrapper">
                             <video id="video2" controls preload="metadata" playsinline webkit-playsinline controlslist="nodownload">
@@ -1924,7 +1966,7 @@
                         </div>
                     </div>
                     
-                    <!-- Video 3 -->
+                     Video 3 
                     <div class="video-item">
                         <div class="video-wrapper">
                             <video id="video3" controls preload="metadata" playsinline webkit-playsinline controlslist="nodownload">
@@ -1943,7 +1985,7 @@
                             <p class="video-title">Farm House - Padliya</p>
                             <p class="video-duration">0:12</p>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <!-- Video 4 -->
                     <!-- <div class="video-item">
@@ -1964,9 +2006,9 @@
                             <p class="video-title">Dahod Site - Farm House</p>
                             <p class="video-duration">0:21</p>
                         </div>
-                    </div> -->
+                    </div>
 
-                    <!-- Video 5 -->
+                    <-- Video 5 
                     <div class="video-item">
                         <div class="video-wrapper">
                             <video id="video3" controls preload="metadata" playsinline webkit-playsinline controlslist="nodownload">
@@ -1987,7 +2029,7 @@
                         </div>
                     </div>
                     
-                    <!-- Video 6 -->
+                    Video 6
                     <div class="video-item">
                         <div class="video-wrapper">
                             <video id="video3" controls preload="metadata" playsinline webkit-playsinline controlslist="nodownload">
@@ -2026,7 +2068,7 @@
                             <p class="video-title">Dahod Site - Farm House</p>
                             <p class="video-duration">0:21</p>
                         </div>
-                    </div>
+                    </div> --> 
 
                     
                 </div>
@@ -2415,64 +2457,101 @@
             }
         });
 
-        // Video play function with mobile compatibility
-        function playVideo(videoId, placeholder) {
-            const video = document.getElementById(videoId);
-            if (!video) return;
+        // // Video play function with mobile compatibility
+        // function playVideo(videoId, placeholder) {
+        //     const video = document.getElementById(videoId);
+        //     // if (!video) return;
             
-            placeholder.classList.add('hidden');
+        //     placeholder.classList.add('hidden');
             
-            // Pause all other videos first
-            document.querySelectorAll('video').forEach(v => {
-                if (v.id !== videoId && !v.paused) {
-                    v.pause();
-                }
-            });
+        //     // Pause all other videos first
+        //     document.querySelectorAll('video').forEach(v => {
+        //         if (v.id !== videoId && !v.paused) {
+        //             v.pause();
+        //         }
+        //     });
             
-            // Handle play with promise for better mobile support
-            const playPromise = video.play();
+        //     // Handle play with promise for better mobile support
+        //     const playPromise = video.play();
             
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    // Video started playing successfully
-                }).catch(error => {
-                    // Auto-play was prevented, show controls and let user play manually
-                    console.log('Auto-play prevented:', error);
-                    video.controls = false;
-                    // On mobile, sometimes we need to mute first for autoplay
-                    video.muted = false;
-                    video.play().catch(e => {
-                        // If still fails, just show the video with controls
-                        video.muted = true;
-                        console.log('Please tap the video to play');
-                    });
-                });
-            }
-        }
+        //     if (playPromise !== undefined) {
+        //         playPromise.then(() => {
+        //             // Video started playing successfully
+        //         }).catch(error => {
+        //             // Auto-play was prevented, show controls and let user play manually
+        //             console.log('Auto-play prevented:', error);
+        //             video.controls = false;
+        //             // On mobile, sometimes we need to mute first for autoplay
+        //             video.muted = false;
+        //             video.play().catch(e => {
+        //                 // If still fails, just show the video with controls
+        //                 video.muted = true;
+        //                 console.log('Please tap the video to play');
+        //             });
+        //         });
+        //     }
+        // }
 
-        // Add touch event listeners for video placeholders
-        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
-            placeholder.addEventListener('touchend', function(e) {
-                e.preventDefault();
-                const videoId = this.closest('.video-wrapper').querySelector('video').id;
-                playVideo(videoId, this);
-            }, { passive: false });
-        });
+        // // Add touch event listeners for video placeholders
+        // document.querySelectorAll('.video-placeholder').forEach(placeholder => {
+        //     placeholder.addEventListener('touchend', function(e) {
+        //         e.preventDefault();
+        //         const videoId = this.closest('.video-wrapper').querySelector('video').id;
+        //         playVideo(videoId, this);
+        //     }, { passive: false });
+        // });
 
-        // Handle video end - show placeholder again
-        document.querySelectorAll('video').forEach(video => {
-            video.addEventListener('ended', function() {
-                const placeholder = this.closest('.video-wrapper').querySelector('.video-placeholder');
-                if (placeholder) {
-                    placeholder.classList.remove('hidden');
-                }
-            });
+        // // Handle video end - show placeholder again
+        // document.querySelectorAll('video').forEach(video => {
+        //     video.addEventListener('ended', function() {
+        //         const placeholder = this.closest('.video-wrapper').querySelector('.video-placeholder');
+        //         if (placeholder) {
+        //             placeholder.classList.remove('hidden');
+        //         }
+        //     });
             
-            // Handle video pause on mobile
-            video.addEventListener('pause', function() {
-                // Don't show placeholder when paused, only when ended
-            });
-        });
+        //     // Handle video pause on mobile
+        //     video.addEventListener('pause', function() {
+        //         // Don't show placeholder when paused, only when ended
+        //     });
+        // });
+
+        const videoData = [
+    { title: "Bungalow Walkthrough", duration: "3:45", thumbnail: "IMG_20250626_215637.jpg", url: "video1" },
+    { title: "Interior Design Tour", duration: "4:20", thumbnail: "IMG_20250626_215637.jpg", url: "video2" },
+    { title: "Project Showcase", duration: "5:15", thumbnail: "IMG_20250626_215637.jpg", url: "video3" },
+    { title: "Design Process", duration: "2:50", thumbnail: "IMG_20250626_215637.jpg", url: "video4" },
+    { title: "Interior Design Tour", duration: "4:20", thumbnail: "IMG_20250626_215637.jpg", url: "video5" },
+    { title: "Interior Design Tour", duration: "4:20", thumbnail: "IMG_20250626_215637.jpg", url: "video6" }
+  ];
+
+  const grid = document.getElementById('videoGrid');
+  videoData.forEach(v => {
+    grid.innerHTML += `
+      <div class="video-card" onclick="openVideo('${v.url}','${v.title}')">
+        <div class="video-thumb">
+          <img src="${v.thumbnail}" alt="${v.title}" loading="lazy">
+          <div class="play-btn"><span></span></div>
+          <div class="video-duration">${v.duration}</div>
+        </div>
+        <div class="video-card-title">${v.title}</div>
+      </div>`;
+  });
+
+  function openVideo(url, title) {
+    document.getElementById('videoModalFrame').src = url + '?autoplay=1';
+    document.getElementById('videoModalTitle').textContent = title;
+    document.getElementById('videoModal').classList.add('active');
+  }
+
+  function closeVideo() {
+    document.getElementById('videoModalFrame').src = '';
+    document.getElementById('videoModal').classList.remove('active');
+  }
+
+  document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideo();
+  });
 
         // Keyboard navigation
         document.addEventListener('keydown', function(e) {
